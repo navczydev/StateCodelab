@@ -16,6 +16,7 @@
 
 package com.codelabs.state.todo
 
+import android.content.res.Configuration
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumnFor
@@ -27,7 +28,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.ui.tooling.preview.Devices
 import androidx.ui.tooling.preview.Preview
+import androidx.ui.tooling.preview.UiMode
 import com.codelabs.state.util.generateRandomTodoItem
 import kotlin.random.Random
 
@@ -226,7 +229,13 @@ private fun randomTint(): Float {
     return Random.nextFloat().coerceIn(0.3f, 0.9f)
 }
 
-@Preview
+@Preview(
+    showBackground = true,
+    uiMode = Configuration.UI_MODE_NIGHT_NO,
+    widthDp = 800,
+    heightDp = 400,
+    device = Devices.PIXEL_4_XL
+)
 @Composable
 fun PreviewTodoScreen() {
     val items = listOf(
@@ -238,7 +247,7 @@ fun PreviewTodoScreen() {
     TodoScreen(items, null, {}, {}, {}, {}, {})
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun PreviewTodoScreenEditing() {
     TodoScreen(listOf(
@@ -246,11 +255,11 @@ fun PreviewTodoScreenEditing() {
     ), TodoItem("Learn compose", TodoIcon.Event), {}, {}, {}, {}, {})
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun PreviewTodoItemInout() = TodoItemEntryInput(onItemComplete = {})
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun PreviewTodoRow() {
     val todo = remember { generateRandomTodoItem() }
