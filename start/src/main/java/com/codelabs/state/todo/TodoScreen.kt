@@ -240,6 +240,14 @@ fun PreviewTodoScreen() {
 
 @Preview
 @Composable
+fun PreviewTodoScreenEditing() {
+    TodoScreen(listOf(
+        TodoItem("Learn compose", TodoIcon.Event),
+    ), TodoItem("Learn compose", TodoIcon.Event), {}, {}, {}, {}, {})
+}
+
+@Preview
+@Composable
 fun PreviewTodoItemInout() = TodoItemEntryInput(onItemComplete = {})
 
 @Preview
