@@ -19,15 +19,20 @@ package com.codelabs.state.examples
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.Text
 import androidx.compose.foundation.layout.Column
+import androidx.compose.material.AmbientTextStyle
+import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.setContent
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.viewinterop.viewModel
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.LiveData
@@ -144,7 +149,26 @@ private fun HelloInput(
         TextField(
             value = name,
             onValueChange = onNameChange,
-            label = { Text("Name") }
+            label = {
+                Text(
+                    "Name",
+                    Modifier,
+                    Color.Unspecified,
+                    TextUnit.Inherit,
+                    null,
+                    null,
+                    null,
+                    TextUnit.Inherit,
+                    null,
+                    null,
+                    TextUnit.Inherit,
+                    TextOverflow.Clip,
+                    true,
+                    Int.MAX_VALUE,
+                    {},
+                    AmbientTextStyle.current
+                )
+            }
         )
     }
 }

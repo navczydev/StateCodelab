@@ -17,7 +17,6 @@
 package com.codelabs.state.examples
 
 import androidx.compose.animation.animateContentSize
-import androidx.compose.foundation.Text
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -26,9 +25,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.Card
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
@@ -38,6 +35,9 @@ import androidx.compose.runtime.savedinstancestate.savedInstanceState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.ui.tooling.preview.Preview
 
@@ -78,7 +78,24 @@ fun ExpandingCard(
             Text(title)
             if (expanded) {
                 Spacer(Modifier.height(8.dp))
-                Text(body)
+                Text(
+                    body,
+                    Modifier,
+                    Color.Unspecified,
+                    TextUnit.Inherit,
+                    null,
+                    null,
+                    null,
+                    TextUnit.Inherit,
+                    null,
+                    null,
+                    TextUnit.Inherit,
+                    TextOverflow.Clip,
+                    true,
+                    Int.MAX_VALUE,
+                    {},
+                    AmbientTextStyle.current
+                )
                 IconButton(onClick = onCollapse, Modifier.fillMaxWidth()) {
                     Icon(Icons.Default.ExpandLess)
                 }
